@@ -1,0 +1,28 @@
+
+// alert('id_fly: <%= session[:number_fly] %>, Pasajero no.: <%= session[:passenger] %>, Total: <%= session[:passenger_total] %>')
+// alert("<%= session[:passenger] == session[:passenger_total] %>")
+// alert('Nombre: @new_user.name')
+// alert('<%= @new_user.name %>')
+
+<% if session[:passenger] == session[:passenger_total] %>
+	
+	<%= @final = true %>
+	//alert('GOOOOO')
+	$("#product-modal").modal('hide')
+	
+	$("#info-modal").html("<%= escape_javascript(render 'total_info') %>")
+	$("#info-modal").modal("show")
+
+	
+<% else %>
+	
+	
+	<%= @final = false %>
+	$("#product-modal").modal('hide')
+
+
+
+<% end %>
+
+
+

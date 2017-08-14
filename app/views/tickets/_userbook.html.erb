@@ -1,0 +1,45 @@
+<!-- Para el registro de usuarios -->
+
+<div class="modal-dialog">
+  <div class="modal-content">
+<%= session[:passenger] %>
+<br>
+<%= @passenger_total %>
+
+
+    <%= form_for :user, url: users_path, remote: true, html: { style: "display:inline;" } do |f| %>
+
+
+
+      <div class="modal-body">
+        <ul class="errors"></ul>
+
+        <h3>Pasajero <%= session[:passenger] + 1 %></h3>
+        <div class="form-group">
+          <%= f.label :name, class:"control-label" %>
+          <%= f.text_field :name, class: "form-control" %>
+        
+       	  <%= f.label :email, class:"control-label" %>
+    	  <%= f.text_field :email, class: "form-control" %>
+        </div>
+
+      </div>
+
+
+<!-- <input type='hidden' value="<%= @passenger %>" name='passenger'> 
+<input type='hidden' value="<%= @passenger_total %>" name='passenger_total'> -->
+
+
+      <div class="modal-footer">
+        <%= f.submit 'Guardar Usuario', class: "btn btn-primary" %>
+        <%= link_to "Cancel", "#", class: "btn", data: {dismiss: "modal"} %>
+      </div>
+
+
+    <% end %>
+
+
+
+
+  </div>
+</div>

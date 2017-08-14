@@ -1,0 +1,59 @@
+
+<div class="container">
+
+<h1>Ticket de Compra</h1>
+
+<table class="table table-bordered table-striped" >
+<thead>
+      <tr>
+        <th>Nombre</th>
+        <th>Email</th>
+      </tr>
+</thead>
+
+
+<div class="task" id="incomplete_tasks">  
+<% @info_userbook.each do |info| %>
+<tr>
+	<th><%= User.find(info.user_id).name %></th>
+	<th><%= User.find(info.user_id).email %></th>
+</tr>
+<% end %>
+</div>
+</table>
+
+
+
+<%= form_for :user, url: buy_path, class: "form-horizontal", role: "form" do |f| %>
+
+	<div class="form-group">
+        <%= f.label :name, "Responsable: " %> &nbsp  &nbsp  &nbsp
+        <div class="col-lg-10">
+          
+          <div class="form-group">
+			<%= f.label :name, "Nombre: " %> &nbsp  &nbsp  &nbsp
+   			<div class="col-lg-10">
+    			<%= f.text_field :name %><br>
+    		</div>
+  		</div>
+  
+  		<div class="form-group">
+  			<%= f.label :name, "Email: " %> &nbsp  &nbsp  &nbsp
+    		<div class="col-lg-10">
+           		<%= f.text_field :email %><br>
+      			
+    		</div>
+  		</div>
+
+
+  		<div class="form-group">
+    		<div class="col-lg-offset-2 col-lg-10">
+      			<button type="submit" class="btn btn-default">Actualizar Responsable</button>
+    		</div>
+  		</div>
+
+
+        </div>
+      </div>
+<% end %>
+</div>

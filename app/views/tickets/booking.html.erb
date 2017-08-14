@@ -1,0 +1,78 @@
+
+<%= session[:passenger] %>
+<%= session[:passenger_total] %>
+<%= @final_fly %>
+<br>
+
+<div class="container">
+    <h1>Vuelitos</h1>
+
+    <h3>Vuelo Elejido</h3>
+
+<table class="table table-bordered table-striped" >
+    <thead>
+      <tr>
+        <th>Vuelo</th>
+        <th>Fecha</th>
+        <th>Hora</th>
+        <th>De</th>
+        <th>Hacia</th>
+        <th>Duracion</th>
+        <th>Precio</th>
+        <th>Asientos Seleccionados</th>
+      </tr>
+    </thead>
+
+
+    <div class="task" id="incomplete_tasks">  
+<tr>
+    <td><%= @final_fly.num_flight %></td>
+    <td><%= @final_fly.date.strftime('%d-%B-%Y') %></td>
+    <td><%= @final_fly.date.strftime('%I:%M %p') %></td>
+    <td><%= @final_fly.from %></td>
+    <td><%= @final_fly.to %></td>
+    <td><%= @final_fly.duration %></td>
+    <td><%= @final_fly.cost %></td>
+    <td><%= session[:passenger_total] %></td>
+</tr>
+    </div>
+</table>
+
+
+
+  <%= form_for :ticket, url: newbooking_path(@final_fly), remote: true, class: "form-horizontal", role: "form" do |f| %>
+
+
+
+<!-- *************************** -->
+<div class="form-group">
+    <div class="col-lg-offset-2 col-lg-10">
+      <%= f.submit 'Siguiente Paso', class: 'btn btn-defaul' %>
+    </div>
+</div>
+
+
+
+
+
+<% end %>
+
+
+<table id="add_name" ></table>
+
+
+
+
+</div>
+
+
+
+
+
+
+<div id="product-modal" class="modal fade"></div>
+
+
+<div id="info-modal" class="modal fade"></div>
+
+

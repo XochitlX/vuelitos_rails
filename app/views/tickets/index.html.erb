@@ -1,0 +1,51 @@
+<div class="container">
+
+	<h1>Vuelitos</h1>
+	<br>
+	<div class="well">
+
+	<%= form_for :ticket, url: tickets_path, class: "form-horizontal", role: "form" do |f| %>
+		<div class="form-group">
+			<%= f.label :name, "De: " %> &nbsp  &nbsp  &nbsp
+   			<div class="col-lg-10">
+    			<%= f.select(:from, options_for_select([[@fly_from, @fly_from]]), {}, {class: "form-control"}) %>
+    		</div>
+  		</div>
+  
+  		<div class="form-group">
+  			<%= f.label :name, "Hacia: " %> &nbsp  &nbsp  &nbsp
+    		<div class="col-lg-10">
+           <%= f.select(:to, options_for_select(@fly_to.each {|fly|[[fly, fly]]}), {}, {class: "form-control"}) %>
+      			
+    		</div>
+  		</div>
+
+
+      <div class="form-group">
+        <%= f.label :name, "Fecha: " %> &nbsp  &nbsp  &nbsp
+        <div class="col-lg-10">
+           <%= f.select(:date, options_for_select(@fly1_day.each  {|f_day|[f_day, f_day]}), {}, {class: "form-control"}) %>
+            
+        </div>
+      </div>
+
+
+  		
+      <div class="form-group">
+        <%= f.label :name, "Pasajeros: " %> &nbsp  &nbsp  &nbsp
+        <div class="col-lg-10">
+          <%= f.select(:passenger, options_for_select([['1', 1], ['2', 2], ['3', 3], ['4', 4], ['5', 5], ['20', 20]]), {}, {class: "form-control"}) %>
+        </div>
+      </div>
+
+
+  
+  		<div class="form-group">
+    		<div class="col-lg-offset-2 col-lg-10">
+      			<button type="submit" class="btn btn-default">Buscar Vuelos</button>
+    		</div>
+  		</div>
+	<% end %>
+	</div>
+</div>
+

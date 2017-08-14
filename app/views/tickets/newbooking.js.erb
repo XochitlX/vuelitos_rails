@@ -1,0 +1,16 @@
+
+//alert("Entrandooo")
+
+//alert('id_fly: <%= session[:number_fly] %>, Pasajero no.: <%= session[:passenger] %>, Total: <%= session[:passenger_total] %>')
+
+
+$("#product-modal").html("<%= escape_javascript(render 'nextbooking') %>")
+$("#product-modal").modal("show")
+$('table tbody#data #add_name').append(' <%= j render "tickets/names", passenger: @new_user %>')
+
+ 
+
+//  $.each("<%= @passenger %>", function(indice, valor){
+//    $("#product-modal").html("<%= escape_javascript(render 'nextbooking') %>")
+// 	$("#product-modal").modal("show")
+// });

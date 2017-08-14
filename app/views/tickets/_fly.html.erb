@@ -1,0 +1,40 @@
+
+
+
+
+<%= @ticket %>
+<% @fly_user.each do |fly| %>
+
+<%= form_for :ticket, url: booking_path(fly), class: "form-horizontal", role: "form" do |f| %>
+
+  <tr>
+    <td><%= fly.num_flight %></td>
+    <td><%= fly.date.strftime('%d-%B-%Y') %></td>
+    <td><%= fly.date.strftime('%I:%M %p') %></td>
+    <td><%= fly.from %></td>
+    <td><%= fly.to %></td>
+    <td><%= fly.duration %></td>
+    <td><%= fly.cost %></td>
+    <td><%= fly.passenger %></td>
+    <input type='hidden' value="<%= @ticket %>" name='info'>
+    <td> 
+    <div class="form-group">
+    <div class="col-lg-offset-2 col-lg-10">
+      <%= f.submit 'Seleccionar Vuelo', class: 'btn btn-defaul' %>
+    </div>
+  </div>
+  </td>
+  </tr>
+<% end %>
+<% end %>
+
+<br>
+<br>
+
+
+
+
+
+
+
+

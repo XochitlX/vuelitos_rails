@@ -1,0 +1,86 @@
+
+<h1></h1>
+
+<div class="container">
+    <h1>Vuelitos</h1>
+
+    <h3>Compra Finalizada</h3>
+
+<table class="table table-bordered table-striped" >
+    <thead>
+      <tr>
+        <th>Vuelo</th>
+        <th>Fecha</th>
+        <th>Hora</th>
+        <th>De</th>
+        <th>Hacia</th>
+        <th>Duracion</th>
+        <th>Precio</th>
+        <th>Asientos Disponibles ahora</th>
+        <th>Asientos Seleccionados</th>
+        <th>Costo Total</th>
+      </tr>
+    </thead>
+
+
+    <div class="task" id="incomplete_tasks">  
+<tr>
+    <td><%= @fly.num_flight %></td>
+    <td><%= @fly.date.strftime('%d-%B-%Y') %></td>
+    <td><%= @fly.date.strftime('%I:%M %p') %></td>
+    <td><%= @fly.from %></td>
+    <td><%= @fly.to %></td>
+    <td><%= @fly.duration %></td>
+    <td><%= @fly.cost %></td>
+    <td><%= @fly.passenger %></td>
+    <td><%= @passenger %></td>
+    <td><%= @booking.total %></td>
+</tr>
+    </div>
+</table>
+
+
+
+<table class="table table-bordered table-striped" >
+    <thead>
+      <tr>
+        <th>Nombre</th>
+        <th>Email</th>
+        <th>Responsable</th>
+      </tr>
+    </thead>
+
+
+    <div class="task" id="incomplete_tasks">  
+
+<% @info.each do |user| %>
+<tr>
+    <td><%= User.find(user.user_id).name %></td>
+    <td><%= User.find(user.user_id).email %></td>
+    <td><%= (User.find(user.user_id).principal) == true ? "SI" : "NO" %></td>
+</tr>
+<% end %>
+
+    </div>
+
+    
+
+</table>
+
+
+<%= form_for :ticket, url: back_path, class: "form-horizontal", role: "form" do |f| %>
+
+<div class="form-group">
+    <div class="col-lg-offset-2 col-lg-10">
+      <%= f.submit 'Regresar a Pagina Principal', class: 'btn btn-defaul' %>
+    </div>
+</div>
+<% end %>
+
+
+
+</div>
+
+
+
+

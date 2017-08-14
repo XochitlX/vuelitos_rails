@@ -1,0 +1,35 @@
+
+<div class="modal-header bg-primary">
+	<h3>Información de Compra</h3>
+</div>
+
+
+<div class="modal-dialog">
+  <div class="modal-content">
+
+
+    <%= form_for :user, url: final_info_path, html: { style: "display:inline;" } do |f| %>
+
+
+      <div class="modal-body">
+        <ul class="errors"></ul>
+
+        <h2>Usuarios Registrados¡¡</h2>
+      </div>
+
+
+
+
+      <div class="modal-footer">
+        <%= f.submit 'Visualizar Información', class: "btn btn-primary" %>
+        <%= link_to "Cancel", "#", class: "btn", data: {dismiss: "modal"} %>
+      </div>
+
+
+    <% end %>
+
+
+
+
+  </div>
+</div>
